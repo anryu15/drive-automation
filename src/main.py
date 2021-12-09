@@ -1,7 +1,7 @@
 from src.websocket import Websocket
 import RPi.GPIO as GPIO
 import websockets
-from src.config import IP_ADDR, PORT, SERVO_PIN, PWM, GPIO_PIN_1, GPIO_PIN_2, SERVER_LINK
+from config import IP_ADDR, PORT, SERVO_PIN, PWM, GPIO_PIN_1, GPIO_PIN_2, SERVER_LINK
 
 if __name__ == "__main__":
     GPIO.setmode(GPIO.BCM)

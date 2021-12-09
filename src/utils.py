@@ -1,6 +1,6 @@
 import cv2
 import time
-from .config import IMAGE_DIR
+from config import IMAGE_DIR
 
 #capture camera frame then make jpg image
 def capture_camera(show=False, name=None):

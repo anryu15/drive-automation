@@ -5,8 +5,8 @@ import asyncio
 import websockets
 from websocket_server import WebsocketServer
 import logging
-from .utils import capture_camera
-from .config import IMAGE_DIR
+from utils import capture_camera
+from config import IMAGE_DIR
 
 class Websocket():
     def __init__(self, host, port, servo, pin_1, pin_2, server_link):
@@ -18,7 +18,7 @@ class Websocket():
     def new_client(self, client, server):
         print("new client connected and was given id {}".format(client['id']))
         self.server.send_message_to_all("hey all, a new client has joined us")
-        
+
     def client_left(self, client, server):
         print("client({}) disconnected".format(client['id']))
 
@@ -48,7 +48,7 @@ class Websocket():
     def run(self):
         self.server.set_fn_new_client(self.new_client)
         self.server.set_fn_client_left(self.client_left)
-        self.server.set_fn_message_received(self.message_received) 
+        self.server.set_fn_message_received(self.message_received)
         self.server.run_forever()
 
     def _servo_angle(self, angle):
@@ -62,6 +62,6 @@ class Websocket():
             with open(f"{IMAGE_DIR}/0.jpg", "rb") as f:
                 data = f.read()
                 await websocket.send(data)
-                
+
 
 
